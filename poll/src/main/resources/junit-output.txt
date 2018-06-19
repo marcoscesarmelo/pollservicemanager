@@ -1,0 +1,48 @@
+#language: pt
+@Integration @CriacaoEnqueteRestrita
+Funcionalidade: Criacao de Enquete para pessoas autorizadas
+  
+  Como usuario autorizado, quero criar uma enquete
+
+  Esquema do Cenario: Criacao de enquete # create-poll.feature:7
+    Dado um usuario autenticado
+    Quando confirmar criacao de enquete
+    Entao a enquete deve ser criada
+    E ser mostrada ao mesmo
+
+    Exemplos: 
+
+  @CriacaoEnqueteRestrita @Integration
+  Esquema do Cenario: Criacao de enquete # create-poll.feature:15
+    Dado um usuario autenticado
+    Quando confirmar criacao de enquete
+    Entao a enquete deve ser criada
+    E ser mostrada ao mesmo
+
+1 Scenarios (1 undefined)
+4 Steps (4 undefined)
+0m0,000s
+
+
+You can implement missing steps with the snippets below:
+
+Dado("^um usuario autenticado$", () -> {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+});
+
+Quando("^confirmar criacao de enquete$", () -> {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+});
+
+Entao("^a enquete deve ser criada$", () -> {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+});
+
+Entao("^ser mostrada ao mesmo$", () -> {
+    // Write code here that turns the phrase above into concrete actions
+    throw new PendingException();
+});
+
