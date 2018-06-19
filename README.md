@@ -92,7 +92,7 @@ create table alternative (
 	on delete cascade
 ) ENGINE=INNODB;
 
-insert into owner values(default, 'pollservicemanager', 'poll123', 'pollservicemanager@gmail.com');
+insert into owner values(default, 'teste', 'poll123', 'pollservicemanager@gmail.com');
 
 commit;
 ```
@@ -112,8 +112,180 @@ java -jar poll-batch-0.0.1-SNAPSHOT.jar
 ```
 3. Feito isto, os serviços estarão rodando. Agora basta acessar ao Postman e criar as chamadas para a API
 
-## O que a API me disponibiliza?
+### O que a API me disponibiliza?
 Segue a lista de Serviços e seus resultados:
+
+## Criar uma Enquete:
+(*) POST na URL http://localhost:8080/poll \
+Exemplo de Body:
+```json
+{
+  "description": "Copa do Mundo. Quem sera o Campeao?",
+  "finalDate": "2018-07-16T23:50:29.000+0000"
+}
+```
+Parâmetros de Header: 
+Content-Type: application/json \
+ownerId: Id que tenha acesso \
+username: username do usuario \
+password: senha do usuario 
+
+Exemplo de Resposta: 
+```json
+{
+    "id": 2,
+    "description": "Copa do Mundo. Quem sera o Campeao?",
+    "initialDate": "2018-06-19T18:45:22.094+0000",
+    "finalDate": "2018-07-16T23:50:29.000+0000",
+    "owner": {
+        "id": 2,
+        "username": "danielab"
+    },
+    "status": 1
+}
+```
+-Obs.: na carga inicial, um usuario é criado e somente ele pode criar novas enquetes. Para outros usuários ter privilégios, basta adicioná-los na API de Owners (donos).
+
+## Criar um Owner:
+(*) POST na URL http://localhost:8080/owner \
+Exemplo de Body:
+```json
+{
+ "username": "pmanager",
+ "password": "tst123",
+ "email": "pollservicemanager@gmail.com"
+ }
+```
+Parâmetros de Header: 
+Content-Type: application/json \
+ownerId: Id que tenha acesso \
+username: username do usuario \
+password: senha do usuario 
+
+Exemplo de Resposta: 
+```json
+{
+    "id": 3,
+    "username": "pmanager",
+    "password": "tst123",
+    "email": "pollservicemanager@gmail.com"
+}
+```
+-Obs.: deve-se respeitar ao tamanho dos campos, conforme modelo de dados, onde username = 10, password = 10 e email = 50. O id é gerado automaticamente.
+
+Após criar uma enquete, deve-se criar alternativas para a mesma. Lembrando que apenas o dono da enquete pode criar alternativas para a enquete em questão. 
+## Criar uma Alternativa:
+(*) POST na URL http://localhost:8080/alternative \
+Exemplo de Body:
+```json
+{
+	"description": "CBF"
+}
+```
+Parâmetros de Header: 
+Content-Type: application/json \
+ownerId: Id que tenha acesso \
+username: username do usuario \
+password: senha do usuario 
+pollId: id da enquete que receberá a alternativa
+
+Exemplo de Resposta: 
+```json
+{
+    "id": 2,
+    "description": "CBF",
+    "poll": {
+        "id": 1,
+        "description": "Copa do Mundo. Quem sera o Campeao?",
+        "initialDate": "2018-06-18T02:50:56.000+0000",
+        "finalDate": "2018-07-16T23:50:29.000+0000",
+        "status": 1
+    }
+}
+```
+Conforme sugerido no inicio, uma vez criada a enquete, diversas alternativas podem ser criadas para a mesma.
+
+Qualquer pessoa pode votar em uma enquete via API. Para tal...
+## Votar em uma enquete:
+(*) PUT na URL http://localhost:8080/alternative/vote/2 \
+onde 2, é a opção desejada
+Exemplo de Resposta: 
+```json
+{
+    "id": 2,
+    "description": "CBF",
+    "poll": {
+        "id": 1,
+        "description": "Copa do Mundo. Quem sera o Campeao?",
+        "initialDate": "2018-06-18T02:50:56.000+0000",
+        "finalDate": "2018-07-16T23:50:29.000+0000",
+        "status": 1
+    }
+}
+```
+Qualquer pessoa pode ver as enquetes, mas apenas o dono da mesma pode enxergar o resultado durante as votações. 
+
+Para ver os dados de uma enquete:
+## Ver dados de uma enquete:
+(*) GET na URL http://localhost:8080/summary/1 \
+Onde 1 é o Id da enquete
+
+Exemplo de Resposta: 
+```json
+{
+    "poll": {
+        "id": 1,
+        "description": "Copa do Mundo. Quem sera o Campeao?",
+        "initialDate": "2018-06-18T02:50:56.000+0000",
+        "finalDate": "2018-06-18T03:00:00.000+0000",
+        "status": 2
+    },
+    "alternatives": [
+        {
+            "id": 1,
+            "description": "Brasil"
+        },
+        {
+            "id": 2,
+            "description": "CBF"
+        }
+    ]
+}
+```
+Mas Conforme critérios de aceite, apenas o dono da enquete enxergará suas parciais. Para ver como anda a enquete antes do fim, ele deve fazer o seguinte:
+## Ver parciais de uma enquete:
+(*) GET na URL http://localhost:8080/summary/results/1 \
+Onde 1 é o Id da enquete
+Parâmetros de Header: 
+Content-Type: application/json \
+ownerId: Id que tenha acesso \
+username: username do usuario \
+password: senha do usuario 
+Exemplo de Resposta: 
+```json
+{
+    "poll": {
+        "id": 1,
+        "description": "Copa do Mundo. Quem sera o Campeao?",
+        "initialDate": "2018-06-18T02:50:56.000+0000",
+        "finalDate": "2018-06-18T03:00:00.000+0000",
+        "status": 2
+    },
+    "alternatives": [
+        {
+            "id": 1,
+            "description": "Brasil",
+            "total": 0
+        },
+        {
+            "id": 2,
+            "description": "CBF",
+            "total": 3
+        }
+    ]
+}
+```
+O resultado é parecido com o método /summary, mas contém o campo "total", as parciais.
 
 ## Quem é o autor?
 [Marcos Cesar de Oliveira Melo](https://www.linkedin.com/in/marcoscesarmelo/)
