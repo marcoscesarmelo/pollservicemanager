@@ -31,6 +31,6 @@ create table alternative (
 	on delete cascade
 ) ENGINE=INNODB;
 
-insert into owner values(default, 'pollservicemanager', 'poll123', 'pollservicemanager@gmail.com');
+insert into owner values(default, 'teste', 'poll123', 'pollservicemanager@gmail.com');
 
 commit;
