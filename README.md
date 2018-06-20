@@ -293,7 +293,7 @@ Uma vez feito isto, ele envia um e-mail para o dono da enquete de acordo com o e
 
 ## Por isto, além da API, se fez tão importante um módulo batch e um cadastro de owner!
 
-##Contate o Autor:
+## Contate o Autor:
 [Marcos Cesar de Oliveira Melo](https://www.linkedin.com/in/marcoscesarmelo/)
 
-##"Simplicidade: a arte de maximizar a quantidade de trabalho que não precisou ser feito.” (Agile Manifest)
+## "Simplicidade: a arte de maximizar a quantidade de trabalho que não precisou ser feito.” (Agile Manifest)
