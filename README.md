@@ -47,10 +47,7 @@ Além da API, também há um outro micro serviço, que utiliza as mesmas tecnolo
 * [Postman](https://www.getpostman.com/) - Um client de chamadas Restful, por exemplo, o Postman
 * [MySQL](https://www.mysql.com/downloads/) - Gerenciados de Banco de Dados MySQL
 
-Além de um PC, é claro!
-
-What things you need to install the software and how to install them
-
+E um PC compatível para utilizar tais ferramentas.
 
 ## Instruções para uso local:
 
