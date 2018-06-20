@@ -287,9 +287,13 @@ Exemplo de Resposta:
 ```
 O resultado é parecido com o método /summary, mas contém o campo "total", as parciais.
 
-## Quem é o autor?
+# E o Poll Batch nesta história?
+O Poll Batch é um Micro Serviço isolado que fica verificando de tempos em tempos (inicialmente o autor deixou 5 segundos), se alguma enquete ja expirou, ou seja, se o valor da data final é menor que hoje.
+Uma vez feito isto, ele envia um e-mail para o dono da enquete de acordo com o e-mail cadastrado. Além disto, o resultado é divulgado via Twitter através desta [conta](https://twitter.com/ManagerPoll).
+
+## Por isto, além da API, se fez tão importante um módulo batch e um cadastro de owner!
+
+##Contate o Autor:
 [Marcos Cesar de Oliveira Melo](https://www.linkedin.com/in/marcoscesarmelo/)
 
-
-
-
+##"Simplicidade: a arte de maximizar a quantidade de trabalho que não precisou ser feito.” (Agile Manifest)
