@@ -6,7 +6,7 @@ O Poll Service Manager é um Gerenciador de Enquetes que possam ser acessadas pe
 # Como funciona?
 ## Em nível de negócio, o Poll Service Manager possui as seguintes estórias:
 ```
-Como pessoa autorizada, 
+Como pessoa autorizada
 Quero criar uma enquete contendo um descritivo, data inicial, data final e status
 Para que todos participem com votações pela Internet
 ```
@@ -16,22 +16,22 @@ Quero criar diversas opções para cada enquete minha criada de forma livre e qu
 Para adotar dinamismo a cada enquete, com novas opções surgindo no andamento da mesma.
 ```
 ```
-Como participante de uma enquete, 
+Como participante de uma enquete
 Quero participar de qualquer enquete e visualizar o resultado final
 Para que  eu veja se todos pensam como eu
 ```
 ```
-Como dono da enquete, 
+Como dono da enquete
 Quero ser o único a saber das parciais
 Para que seja divulgado somente ao final de cada enquete
 ```
 ```
-Como dono da enquete, 
+Como dono da enquete
 Quero que ao final de cada enquete que eu criei, seja enviado um e-mail com os resultados
 Para que eu divulgue da melhor maneira possível
 ```
 ```
-Como dono da enquete, 
+Como dono da enquete
 Quero que ao final de cada enquete que eu criei, seja postado no Twitter oficial do Poll Service Manager os resultados
 Para que se tenha um canal padrão de divulgação das enquetes
 ```
@@ -113,7 +113,7 @@ java -jar poll-batch-0.0.1-SNAPSHOT.jar
 3. Feito isto, os serviços estarão rodando. Agora basta acessar ao Postman e criar as chamadas para a API
 
 ### O que a API me disponibiliza?
-Segue a lista de Serviços e seus resultados:
+Segue a lista dos principais Serviços e exemplos de resultados:
 
 ## Criar uma Enquete:
 (*) POST na URL http://localhost:8080/poll \
