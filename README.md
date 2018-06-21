@@ -43,7 +43,7 @@ Além da API, também há um outro micro serviço, que utiliza as mesmas tecnolo
 ### O que eu preciso para executar localmente em minha estação de trabalho?
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) Java JDK 
 * [Spring](http://spring.io/) - Framework utilizado (Spring Boot + Spring Data)
-* [Maven](https://maven.apache.org/) - Gereciados de Dependências
+* [Maven](https://maven.apache.org/) - Gerenciador de Dependências
 * [Postman](https://www.getpostman.com/) - Um client de chamadas Restful, por exemplo, o Postman
 * [MySQL](https://www.mysql.com/downloads/) - Gerenciador de Banco de Dados MySQL
 
