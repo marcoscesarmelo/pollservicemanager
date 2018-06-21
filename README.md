@@ -45,7 +45,7 @@ Além da API, também há um outro micro serviço, que utiliza as mesmas tecnolo
 * [Spring](http://spring.io/) - Framework utilizado (Spring Boot + Spring Data)
 * [Maven](https://maven.apache.org/) - Gereciados de Dependências
 * [Postman](https://www.getpostman.com/) - Um client de chamadas Restful, por exemplo, o Postman
-* [MySQL](https://www.mysql.com/downloads/) - Gerenciados de Banco de Dados MySQL
+* [MySQL](https://www.mysql.com/downloads/) - Gerenciador de Banco de Dados MySQL
 
 E um PC compatível para utilizar tais ferramentas.
 
